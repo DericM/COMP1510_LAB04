@@ -1,0 +1,80 @@
+package q1;
+/**
+ * 
+ */
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
+
+
+/**
+ * @author Deric
+ *
+ */
+//************************************************************ 
+// DeliFormat.java 
+// 
+// Computes the price of a deli item given the weight 
+// (in ounces) and price per pound -- prints a label, 
+// nicely formatted, for the item. 
+//
+//************************************************************
+public class DeliFormat {
+
+    /**
+     * @param args
+     */
+    // --------------------------------------------------
+    // main reads in the price per pound of a deli item 
+    // and number of ounces of a deli item then computes 
+    // the total price and prints a "label" for the item 
+    // ---------------------------------------------------
+    public static void main(String[] args) {
+        // price per pound // weight in ounces // weight in pounds// total price for the item
+        final double OUNCES_PER_POUND = 16.0; 
+        double pricePerPound;
+        double weightOunces; 
+        double weight;
+        double totalPrice;
+
+        // Declare money as a NumberFormat object and use the 
+        // getCurrencyInstance method to assign it a value
+        Locale locale = new Locale("en", "CA");
+        NumberFormat money = NumberFormat.getCurrencyInstance(locale);
+        
+        // Declare fmt as a DecimalFormat object and instantiate 
+        // it to format numbers with at least one digit to the left of the 
+        // decimal and the fractional part rounded to two digits.
+        String pattern = "0.##";
+        DecimalFormat fmt = new DecimalFormat(pattern);
+        
+        // prompt the user and read in each input 
+        Scanner scan = new Scanner(System.in);
+        System.out.println ("Welcome to the CS Deli! ! \n ");
+        System.out.print ("Enter the price per pound of your item: "); 
+        pricePerPound = scan.nextDouble();
+        System.out.print ("Enter the weight (ounces): "); 
+        weightOunces = scan.nextDouble();
+        
+        
+        // Convert ounces to pounds and compute the total price 
+        weight = weightOunces / OUNCES_PER_POUND; 
+        totalPrice = pricePerPound * weight;
+        
+        // Print the label using the formatting objects 
+        // fmt for the weight in pounds and money for the prices
+        System.out.println ();
+        System.out.print ("The unit price is: ");
+        System.out.println (money.format(pricePerPound));
+        System.out.print ("The weight in pounds is: ");
+        System.out.println (fmt.format(weight)); 
+        
+        System.out.println ();
+        System.out.print ("The total price is: ");
+        System.out.println (money.format(totalPrice)); 
+
+    }
+
+}
