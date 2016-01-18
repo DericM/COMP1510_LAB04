@@ -57,7 +57,7 @@ public class DeliFormat {
         pricePerPound = scan.nextDouble();
         System.out.print ("Enter the weight (ounces): "); 
         weightOunces = scan.nextDouble();
-        
+        scan.close();
         
         // Convert ounces to pounds and compute the total price 
         weight = weightOunces / OUNCES_PER_POUND; 

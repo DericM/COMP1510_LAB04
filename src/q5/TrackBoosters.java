@@ -48,6 +48,8 @@ public class TrackBoosters {
         System.out.print ("Enter the number of boxes sold by " + booster2.getName() + " in week three.");
         booster2.updateSales(scan.nextInt());
         
+        scan.close();
+        
         //print name and total sales
         System.out.println (booster1.toString());
         System.out.println (booster2.toString());

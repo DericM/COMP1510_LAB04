@@ -51,6 +51,7 @@ public class IntWrapper {
         System.out.print ("What is your second int?: ");
         secondInt = scan.next();
         System.out.println();
+        scan.close();
         
         //output for part 3
         System.out.print("The sum of the ints is: ");
